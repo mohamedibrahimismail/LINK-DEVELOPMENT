@@ -1,0 +1,236 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+
+    defaultConfig {
+        applicationId "com.example.link"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1"
+        multiDexEnabled = "true"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    androidExtensions {
+        experimental = true
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    //BIDIRECTIONAL
+    implementation 'com.code95.bidirectionalviewpager:bidirectionalviewpager:0.0.1'
+
+
+    //map helper
+    implementation 'com.google.maps.android:android-maps-utils-v3:2.0.3'
+
+    //new image picker
+    implementation 'gun0912.ted:tedimagepicker:1.1.3'
+
+
+    // kotlin
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$rootProject.kotlinVersion"
+
+    implementation 'com.nshmura:recyclertablayout:1.5.0'
+
+
+    // android support libraries
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.media:media:1.1.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.44'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation 'androidx.vectordrawable:vectordrawable-animated:1.1.0'
+    implementation 'com.android.support:multidex:1.0.3'
+    // google maps
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    // network
+    implementation "com.squareup.retrofit2:retrofit:${rootProject.retrofit}"
+    implementation "com.squareup.retrofit2:converter-gson:${rootProject.retrofit}"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:${rootProject.retrofit}"
+    implementation "com.squareup.retrofit2:converter-scalars:2.1.0"
+    implementation "com.squareup.okhttp3:okhttp:${rootProject.okhttp}"
+    implementation "com.amitshekhar.android:rx2-android-networking:${rootProject.rx2Networking}"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+
+    //Search
+    implementation 'com.github.Ferfalk:SimpleSearchView:0.1.5'
+
+
+    // database
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta4'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // font
+    implementation 'io.github.inflationx:calligraphy3:3.1.1'
+    implementation 'io.github.inflationx:viewpump:2.0.3'
+    // image
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation 'com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2'
+
+    // parser
+    implementation "com.google.code.gson:gson:$rootProject.gsonVersion"
+
+    // debug database
+    debugImplementation "com.amitshekhar.android:debug-db:$rootProject.debugDBVersion"
+
+    // reactive
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.rxjava2Version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
+
+    implementation 'com.github.florent37:expansionpanel:1.2.2'
+
+    // andko kotlin helper
+    implementation "org.jetbrains.anko:anko:$anko_version"
+
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.aac_version"
+    //Koin - Dependency Injection
+    implementation "org.koin:koin-android:$rootProject.koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$rootProject.koin_version"
+    //KoinTest
+    testImplementation 'org.koin:koin-test:1.0.1'
+
+    // swipe view
+    implementation "com.mindorks:placeholderview:$rootProject.placeholderviewVersion"
+
+    //Rounded ImageView
+    implementation 'com.joooonho:selectableroundedimageview:1.0.1'
+
+    // logger
+    implementation "com.jakewharton.timber:timber:$rootProject.timberVersion"
+
+    // Shimmer
+    implementation 'com.facebook.shimmer:shimmer:0.3.0'
+    //progress
+    implementation 'me.zhanghai.android.materialprogressbar:library:1.6.0'
+    // dependencies for local unit tests
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+
+    // font
+//    implementation "uk.co.chrisjenx:calligraphy:$rootProject.calligraphyVersion"
+
+    // UI Testing
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.2.0'
+    androidTestImplementation "org.mockito:mockito-core:$rootProject.mockitoVersion"
+
+    // Android Kotlin Extension
+    implementation "androidx.core:core-ktx:$rootProject.androidKTXVersion"
+    implementation "android.arch.navigation:navigation-fragment:$rootProject.navigationVersion"
+    implementation "android.arch.navigation:navigation-ui-ktx:$rootProject.navigationVersion"
+
+    //Blur View
+    implementation 'com.eightbitlab:blurview:1.5.0'
+
+    implementation 'com.google.android.exoplayer:exoplayer:2.10.0'
+
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
+    //Circular ImageView
+    implementation 'de.hdodenhof:circleimageview:3.0.1'
+
+    implementation 'nl.komponents.kovenant:kovenant:3.3.0'
+    //rounded ImageView
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    //implementation files('libs/YouTubeAndroidPlayerApi.jar')
+    implementation 'com.github.stfalcon:stfalcon-imageviewer:0.1.0'
+    implementation 'com.github.smarteist:autoimageslider:1.3.2'
+
+    // Slider
+    implementation 'com.github.IslamKhSh:CardSlider:1.0.1'
+
+    //sliding up panel
+    implementation 'com.sothree.slidinguppanel:library:3.4.0'
+
+    //Firebase
+    implementation 'com.google.firebase:firebase-core:17.5.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'
+    // Recommended: Add the Firebase SDK for Google Analytics.
+    implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
+
+    // Add the Firebase Crashlytics SDK.
+    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.2.1'
+
+
+    implementation 'com.borjabravo:readmoretextview:2.1.0'
+
+    //Dialogs
+    implementation 'com.github.Joinersa:OoOAlertDialog:1.0.3'
+    // Loading
+    implementation 'com.wang.avi:library:2.1.3'
+
+    //Bottom navigation
+    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
+
+    //custom floating
+    implementation 'com.robertlevonyan.view:CustomFloatingActionButton:3.0.0'
+
+    //event bus
+    implementation 'org.greenrobot:eventbus:3.2.0'
+
+    //Bottom sheet
+    implementation 'com.github.marcoscgdev:DialogSheet:2.0.9'
+
+    implementation 'com.github.florent37:shapeofview:1.0.7'
+
+    //swipe layout
+    implementation 'com.github.zerobranch:SwipeLayout:1.3.1'
+
+    // rating
+    implementation 'com.github.FlyingPumba:SimpleRatingBar:v0.1.5'
+
+    //route draw
+    implementation 'org.slf4j:slf4j-nop:1.7.25'
+    implementation 'com.google.maps:google-maps-services:0.2.11'
+
+    //Image picker
+//    implementation 'gun0912.ted:tedbottompicker:2.0.1'
+
+    //Image preview
+    implementation 'com.github.himangipatel:ImagesPreview:0.0.5'
+
+    //Navigation_Component
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    //Picasso
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+
+}

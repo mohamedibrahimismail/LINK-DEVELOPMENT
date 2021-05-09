@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="nav_header_height">100dp</dimen>
+    <dimen name="navigation_drawer_width">260dp</dimen>
+    <dimen name="tool_bar_padding">20dp</dimen>
+</resources>

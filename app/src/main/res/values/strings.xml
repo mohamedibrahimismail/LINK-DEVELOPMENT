@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">LINK DEVELOPMENT</string>
+    <string name="your_toke_expired_login_again">your token expired login again</string>
+    <string name="some_error">Something went wrong please try again</string>
+    <string name="error_no_internet_connection">Please Connect to Internet</string>
+    <string name="internal_storage" translatable="false">Internal storage</string>
+    <string name="explore">Explore</string>
+    <string name="live_chat">Live Chat</string>
+    <string name="gallery">Gallery</string>
+    <string name="wishlist">Wish List</string>
+    <string name="e_magazine">E-Magazine</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="link_development">LINK DEVELOPMENT</string>
+    <string name="welcome">Welcome</string>
+    <string name="tony_roshdy">Tony Roshdy</string>
+    <string name="by">By</string>
+    <string name="sorry_server_error_happened">server error happened , please try again !</string>
+    <string name="open_website">OPEN WEBSITE</string>
+    <string name="please_check_network_connection">please check network connection !</string>
+
+</resources>

@@ -1,0 +1,85 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.4.10'
+    ext.anko_version = '0.10.8'
+
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+
+        maven {
+            url "https://dl.bintray.com/abdallah-mohamed/maven"
+        }
+        dependencies {
+            classpath "com.android.tools.build:gradle:4.0.1"
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+
+            // NOTE: Do not place your application dependencies here; they belong
+            // in the individual module build.gradle files
+        }
+    }
+}
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            maven { url "https://jitpack.io" }
+            mavenCentral()
+            mavenLocal()
+        }
+    }
+
+    task clean(type: Delete) {
+        delete rootProject.buildDir
+    }
+
+    ext {
+        minSdkVersion = 21
+        targetSdkVersion = 29
+        compileSdkVersion = 29
+        buildToolsVersion = '26.0.2'
+        kotlinVersion = kotlin_version
+        supportLibraryVersion = '29.0.0'
+//    gsonVersion = '2.8.0'
+//    calligraphyVersion = '3.1.1'
+        glideVersion = '4.12.0'
+        rx2FastAndroidNetworking = '1.0.2'
+        navigationVersion = '1.0.0'
+        dagger2Version = '2.11'
+        rxjava2Version = '2.0.6'
+        rxandroidVersion = '2.1.1'
+        retrofit = '2.3.0'
+        okhttp = '3.8.1'
+        rx2Networking = '1.0.2'
+        roomDatabaseVersion = '1.1.1'
+        placeholderviewVersion = '0.6.1'
+        debugDBVersion = '1.0.6'
+        timberVersion = '4.6.0'
+        retrofit_version = "2.4.0"
+        junitVersion = '4.12'
+        espressoVersion = '2.2.2'
+        mockitoVersion = '2.7.1'
+        androidKTXVersion = '1.1.0'
+        retrofit_version = "2.4.0"
+        koin_version = "1.0.2"
+        coroutines_version = "1.0.0-RC1"
+        aac_version = "2.2.0"
+        hyperion = '0.9.22'
+
+        versionCode = 1
+        versionName = "1.0"
+        androidXCoreVersion = '1.0.2'
+        androidXAppcompatVersion = '1.0.2'
+        circleimageviewVersion = '3.0.0'
+        robolectricVersion = '4.1'
+        androidXTestCoreVersion = '1.1.0'
+        mockitoCoreVersion = '2.24.0'
+        gsonVersion = '2.8.5'
+        androidXEspressoCoreVersion = '3.1.1'
+        androidXEspressoIdlingResourceVersion = '3.1.1'
+        androidXTestRulesVersion = '1.1.1'
+        androidXTestRunnerVersion = '1.1.1'
+        androidXTestExtJunitVersion = '1.1.0'
+        nav_version = "2.3.0-alpha02"
+    }
