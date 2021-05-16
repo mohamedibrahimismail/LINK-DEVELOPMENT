@@ -1,16 +1,14 @@
 package  com.example.link.utils
 
-import android.content.Context
-import android.graphics.drawable.Drawable
-import android.util.TypedValue
+import android.annotation.SuppressLint
+import android.os.Build
 import android.widget.ImageView
-import androidx.annotation.AttrRes
-import androidx.annotation.DrawableRes
-import androidx.core.graphics.drawable.DrawableCompat
-import androidx.vectordrawable.graphics.drawable.VectorDrawableCompat
+import android.widget.TextView
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.example.link.R
-import com.google.gson.JsonObject
+import java.time.OffsetDateTime
+import java.time.format.DateTimeFormatter
 
 
 fun ImageView?.loadImage(url: String?) {
@@ -23,5 +21,12 @@ fun ImageView?.loadImage(url: String?) {
     }
 }
 
-
+@RequiresApi(Build.VERSION_CODES.O)
+@SuppressLint("SimpleDateFormat")
+fun TextView.convertToDate(date_: String) {
+    val desiredFormatter: DateTimeFormatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy")
+    val dateTime: OffsetDateTime = OffsetDateTime.parse(date_)
+    val presentationDateTimeString: String = dateTime.format(desiredFormatter)
+    this.text = presentationDateTimeString
+}
 

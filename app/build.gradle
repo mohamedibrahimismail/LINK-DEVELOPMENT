@@ -25,6 +25,8 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+        coreLibraryDesugaringEnabled true
+
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
@@ -44,15 +46,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //BIDIRECTIONAL
-    implementation 'com.code95.bidirectionalviewpager:bidirectionalviewpager:0.0.1'
 
-
-    //map helper
-    implementation 'com.google.maps.android:android-maps-utils-v3:2.0.3'
-
-    //new image picker
-    implementation 'gun0912.ted:tedimagepicker:1.1.3'
+    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
 
 
     // kotlin
@@ -158,7 +153,6 @@ dependencies {
     //Blur View
     implementation 'com.eightbitlab:blurview:1.5.0'
 
-    implementation 'com.google.android.exoplayer:exoplayer:2.10.0'
 
     implementation 'com.daimajia.easing:library:2.0@aar'
     implementation 'com.daimajia.androidanimations:library:2.3@aar'
@@ -169,9 +163,6 @@ dependencies {
     //rounded ImageView
     implementation 'com.makeramen:roundedimageview:2.3.0'
 
-    //implementation files('libs/YouTubeAndroidPlayerApi.jar')
-    implementation 'com.github.stfalcon:stfalcon-imageviewer:0.1.0'
-    implementation 'com.github.smarteist:autoimageslider:1.3.2'
 
     // Slider
     implementation 'com.github.IslamKhSh:CardSlider:1.0.1'
@@ -179,49 +170,9 @@ dependencies {
     //sliding up panel
     implementation 'com.sothree.slidinguppanel:library:3.4.0'
 
-    //Firebase
-    implementation 'com.google.firebase:firebase-core:17.5.0'
-    implementation 'com.google.firebase:firebase-messaging:20.2.4'
-    // Recommended: Add the Firebase SDK for Google Analytics.
-    implementation 'com.google.firebase:firebase-analytics-ktx:17.5.0'
-
-    // Add the Firebase Crashlytics SDK.
-    implementation 'com.google.firebase:firebase-crashlytics-ktx:17.2.1'
-
 
     implementation 'com.borjabravo:readmoretextview:2.1.0'
 
-    //Dialogs
-    implementation 'com.github.Joinersa:OoOAlertDialog:1.0.3'
-    // Loading
-    implementation 'com.wang.avi:library:2.1.3'
-
-    //Bottom navigation
-    implementation 'com.aurelhubert:ahbottomnavigation:2.3.4'
-
-    //custom floating
-    implementation 'com.robertlevonyan.view:CustomFloatingActionButton:3.0.0'
-
-    //event bus
-    implementation 'org.greenrobot:eventbus:3.2.0'
-
-    //Bottom sheet
-    implementation 'com.github.marcoscgdev:DialogSheet:2.0.9'
-
-    implementation 'com.github.florent37:shapeofview:1.0.7'
-
-    //swipe layout
-    implementation 'com.github.zerobranch:SwipeLayout:1.3.1'
-
-    // rating
-    implementation 'com.github.FlyingPumba:SimpleRatingBar:v0.1.5'
-
-    //route draw
-    implementation 'org.slf4j:slf4j-nop:1.7.25'
-    implementation 'com.google.maps:google-maps-services:0.2.11'
-
-    //Image picker
-//    implementation 'gun0912.ted:tedbottompicker:2.0.1'
 
     //Image preview
     implementation 'com.github.himangipatel:ImagesPreview:0.0.5'
@@ -230,7 +181,6 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
 
-    //Picasso
-    implementation 'com.squareup.picasso:picasso:2.5.2'
+
 
 }

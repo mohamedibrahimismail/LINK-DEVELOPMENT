@@ -17,6 +17,7 @@ import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.Observer
 import com.example.link.R
 import com.example.link.viewModels.CommanVM
 import com.example.link.utils.NetworkUtils
@@ -50,34 +51,54 @@ abstract class BaseActivity : AppCompatActivity(), BaseViewCallBack {
             .inflate(getActivityView(), layout_base_view, false) as ViewGroup
         layout_base_view.addView(activityView)
 
-        afterInflation(savedInstanceState)
-
 
         if (!isNetworkConnected()) {
-            noInternetLY.visibility = View.VISIBLE
-            activityView!!.visibility = View.GONE
+            networkDisconnected()
         } else {
-            noInternetLY.visibility = View.GONE
-            activityView!!.visibility = View.VISIBLE
+            networkConnected()
+            afterInflation(savedInstanceState)
         }
+
         noInternetLY.retryBTN.setOnClickListener {
             if (!isNetworkConnected()) {
-                noInternetLY.visibility = View.VISIBLE
-                activityView!!.visibility = View.GONE
+                networkDisconnected()
             } else {
-                noInternetLY.visibility = View.GONE
-                activityView!!.visibility = View.VISIBLE
+                networkConnected()
+                afterInflation(savedInstanceState)
             }
         }
 
+        commanVM.error.observe(this, Observer {
+            if (!it.equals("")) {
+                showErrorLyt()
+            } else {
+                hideErrorLyt()
+            }
+        })
+
+        retryBTN2.setOnClickListener(View.OnClickListener {
+            commanVM.error.value = ""
+            afterInflation(savedInstanceState)
+        })
+
     }
 
-    protected fun networkDisconnected(){
+    protected fun showErrorLyt() {
+        errorView.visibility = View.VISIBLE
+        activityView!!.visibility = View.GONE
+    }
+
+    protected fun hideErrorLyt() {
+        errorView.visibility = View.GONE
+        activityView!!.visibility = View.VISIBLE
+    }
+
+    protected fun networkDisconnected() {
         noInternetLY.visibility = View.VISIBLE
         activityView!!.visibility = View.GONE
     }
 
-    protected fun networkConnected(){
+    protected fun networkConnected() {
         noInternetLY.visibility = View.GONE
         activityView!!.visibility = View.VISIBLE
     }
@@ -148,15 +169,15 @@ abstract class BaseActivity : AppCompatActivity(), BaseViewCallBack {
         progressL.visibility = View.GONE
         errorView.visibility = View.VISIBLE
         activityView!!.visibility = View.GONE
-        if (actionString != null) {
-            errorActionB.setOnClickListener(actionListener)
-            errorActionB.visibility = View.VISIBLE
-        }
-        if (icon != null) {
-            errorIcon!!.setImageDrawable(icon)
-        }
-        errorText.text = textString
-        errorActionB.text = actionString
+//        if (actionString != null) {
+//            retryBTN2.setOnClickListener(actionListener)
+//            retryBTN2.visibility = View.VISIBLE
+//        }
+//        if (icon != null) {
+//            retryBTN2!!.setImageDrawable(icon)
+//        }
+//        errorText.text = textString
+//        retryBTN2.text = actionString
     }
 
     override fun onError(

@@ -8,5 +8,7 @@
     <color name="colorNav">#fafaf9</color>
     <color name="colorMaintitle">#46484a</color>
     <color name="colorDate">#727a82</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
 
 </resources>

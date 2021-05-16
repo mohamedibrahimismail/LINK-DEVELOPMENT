@@ -18,5 +18,9 @@
     <string name="sorry_server_error_happened">server error happened , please try again !</string>
     <string name="open_website">OPEN WEBSITE</string>
     <string name="please_check_network_connection">please check network connection !</string>
+    <string name="retry">Retry</string>
+    <string name="title_place_holder">Amazing Images gv ngv jthmgnv hmnb hnm</string>
+    <string name="sponsered_place_holder">Amazing Images</string>
+    <string name="date_place_holder">April 3,2017</string>
 
 </resources>

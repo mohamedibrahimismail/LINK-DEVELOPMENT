@@ -2,14 +2,13 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginStart="20dp"
-    android:layout_marginTop="20dp"
-    android:layout_marginEnd="20dp"
-    android:orientation="vertical"
-    android:weightSum="1">
+    android:layout_marginStart="@dimen/def_margin"
+    android:layout_marginTop="@dimen/def_margin"
+    android:layout_marginEnd="@dimen/def_margin"
+    android:orientation="vertical">
 
 
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -19,8 +18,7 @@
         <ImageView
             android:id="@+id/image"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_weight=".6"
+            android:layout_height="@dimen/list_item_tool_bar_title_text_size"
             android:scaleType="centerCrop"
             android:src="@drawable/placeholder" />
 
@@ -28,10 +26,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight=".4"
             android:background="@color/white"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="@dimen/list_item_def_padding">
 
             <TextView
                 android:id="@+id/title_txt"
@@ -39,33 +36,34 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="Amazing Images gv ngv jthmgnv hmnb hnm "
+                android:text="@string/title_place_holder"
                 android:textColor="@color/colorMaintitle"
-                android:textSize="22sp" />
+                android:textSize="@dimen/news_title_text_size" />
 
             <TextView
                 android:id="@+id/sponsored_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="@dimen/list_item_default_item_top_margin"
                 android:ellipsize="end"
                 android:gravity="start"
                 android:maxLines="1"
-                android:text="Amazing Images"
+                android:text="@string/sponsered_place_holder"
                 android:textColor="@color/colorDate"
-                android:textSize="14sp" />
+                android:textSize="@dimen/sponsered_text_size" />
 
 
             <TextView
                 android:id="@+id/date_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/list_item_default_item_top_margin"
                 android:ellipsize="end"
                 android:gravity="end"
                 android:maxLines="1"
-                android:text="April 3,2017"
+                android:text="@string/date_place_holder"
                 android:textColor="@color/colorDate"
-                android:textSize="12sp" />
+                android:textSize="@dimen/list_item_date_text_size" />
 
 
         </LinearLayout>

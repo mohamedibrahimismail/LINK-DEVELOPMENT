@@ -1,14 +1,18 @@
 package com.example.link.ui.details
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.view.View
+import androidx.annotation.RequiresApi
 import com.bumptech.glide.Glide
 import com.example.link.R
 import com.example.link.model.main.ArticlesModelItem
 import com.example.link.ui.base.BaseActivity
+import com.example.link.utils.convertToDate
 import com.example.link.utils.loadImage
 import kotlinx.android.synthetic.main.activity_details.*
 import kotlinx.android.synthetic.main.main_news_list_item.view.*
@@ -17,10 +21,12 @@ class DetailsActivity : BaseActivity() {
 
     override fun getActivityView(): Int = R.layout.activity_details
 
+
     override fun afterInflation(savedInstance: Bundle?) {
         setupViews()
     }
 
+    @SuppressLint("NewApi")
     fun setupViews() {
         back_img.setOnClickListener(View.OnClickListener {
             finish()
@@ -30,7 +36,7 @@ class DetailsActivity : BaseActivity() {
         })
 
         if (articlesModelItem.publishedAt != null) {
-            date_txt.text = articlesModelItem.publishedAt
+            date_txt.convertToDate(articlesModelItem.publishedAt!!)
         } else {
             date_txt.visibility = View.GONE
         }

@@ -1,18 +1,20 @@
 package com.example.link.adapters
 
 import android.content.Context
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.link.R
 import com.example.link.model.main.ArticlesModelItem
 import com.example.link.ui.base.CommonVH
 import com.example.link.ui.details.DetailsActivity
+import com.example.link.utils.convertToDate
 import com.example.link.utils.loadImage
-import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.main_news_list_item.view.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
@@ -29,6 +31,8 @@ class NewsFeedListAdapter(
         )
     }
 
+
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: CommonVH, position: Int) {
         with(holder.itemView) {
             image.loadImage(list.get(position).urlToImage)
@@ -36,7 +40,7 @@ class NewsFeedListAdapter(
             sponsored_txt.text = context.resources.getString(R.string.by)+" "+list.get(position).author
             if(list.get(position).publishedAt!=null) {
                 date_txt.visibility = View.VISIBLE
-                date_txt.text = list.get(position).publishedAt
+                date_txt.convertToDate(list.get(position).publishedAt!!)
             }else{
                 date_txt.visibility = View.INVISIBLE
             }

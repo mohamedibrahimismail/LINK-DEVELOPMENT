@@ -6,6 +6,7 @@
     android:background="@color/white"
     android:gravity="center"
     android:visibility="gone"
+    android:layout_weight="1"
     android:id="@+id/noInternetLY"
     android:orientation="vertical">
 
@@ -28,12 +29,15 @@
         android:textSize="24sp" />
 
     <Button
+        android:text="@string/retry"
         android:id="@+id/retryBTN"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="6dp"
         android:gravity="center"
-        android:textColor="@color/white" />
+        android:textColor="@color/white"
+        android:backgroundTint="@color/colorPrimaryDark"
+        />
 
 </LinearLayout>

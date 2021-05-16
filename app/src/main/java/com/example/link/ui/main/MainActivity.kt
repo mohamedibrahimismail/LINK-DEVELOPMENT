@@ -2,6 +2,7 @@ package com.example.link.ui.main
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
@@ -16,49 +17,35 @@ import com.example.link.model.main.ArticlesModelItem
 import com.example.link.model.main.NavigationItemModel
 import com.example.link.viewModels.MainVM
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_no_internet_connection.*
+import kotlinx.android.synthetic.main.layout_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 private const val TAG = "MainActivity"
 
 class MainActivity : BaseActivity() {
+
     private val mainVM: MainVM by viewModel()
-    private lateinit var adapter: NavigationRVAdapter
-    private lateinit var items: ArrayList<NavigationItemModel>
 
     override fun getActivityView(): Int = R.layout.activity_main
 
     override fun afterInflation(savedInstance: Bundle?) {
-        //Add Navigation Models to array list
-        items = arrayListOf<NavigationItemModel>(
-            NavigationItemModel(
-                R.drawable.explore,
-                resources.getString(R.string.explore)
-            ),
-            NavigationItemModel(
-                R.drawable.live,
-                resources.getString(R.string.live_chat)
-            ),
-            NavigationItemModel(
-                R.drawable.gallery,
-                resources.getString(R.string.gallery)
-            ),
-            NavigationItemModel(
-                R.drawable.wishlist,
-                resources.getString(R.string.wishlist)
-            ),
-            NavigationItemModel(
-                R.drawable.e_magazine,
-                resources.getString(R.string.e_magazine)
-            ),
 
-            )
         setupViews()
         setupObservers()
-        //mainVM.getTheNextWeb()
         mainVM.getAllArticles()
+
     }
 
-    fun setupObservers() {
+    private fun setupViews() {
+        // Set the toolbar
+        setSupportActionBar(activity_main_toolbar)
+        supportActionBar!!.setDisplayShowTitleEnabled(false)
+        // Set Navigation Drawer
+        setupNavigationDrawer()
+    }
+
+    private fun setupObservers() {
         mainVM.loading.observe(this, Observer {
             showLoading(it)
         })
@@ -76,21 +63,8 @@ class MainActivity : BaseActivity() {
             }
 
         })
-    }
 
-    fun setupViews() {
-        if(isNetworkConnected()){
-            networkConnected()
-        }else{
-            networkDisconnected()
-        }
-        // Set the toolbar
-        setSupportActionBar(activity_main_toolbar)
-        supportActionBar!!.setDisplayShowTitleEnabled(false)
-        // Set Navigation Drawer
-        setupNavigationDrawer()
     }
-
 
     private fun setupNavigationDrawer() {
         setupNavigationAdapter()
@@ -131,8 +105,35 @@ class MainActivity : BaseActivity() {
     }
 
     private fun setupNavigationAdapter() {
-        adapter = NavigationRVAdapter(items)
+        var adapter: NavigationRVAdapter = NavigationRVAdapter(getNavigationDrawerListItems())
         navigation_rv.adapter = adapter
+    }
+
+    private fun getNavigationDrawerListItems(): ArrayList<NavigationItemModel> {
+        //Add Navigation Models to array list
+        return arrayListOf<NavigationItemModel>(
+            NavigationItemModel(
+                R.drawable.explore,
+                resources.getString(R.string.explore)
+            ),
+            NavigationItemModel(
+                R.drawable.live,
+                resources.getString(R.string.live_chat)
+            ),
+            NavigationItemModel(
+                R.drawable.gallery,
+                resources.getString(R.string.gallery)
+            ),
+            NavigationItemModel(
+                R.drawable.wishlist,
+                resources.getString(R.string.wishlist)
+            ),
+            NavigationItemModel(
+                R.drawable.e_magazine,
+                resources.getString(R.string.e_magazine)
+            ),
+
+            )
     }
 
     private fun setupNewsFeedAdapter(it: MutableList<ArticlesModelItem>) {

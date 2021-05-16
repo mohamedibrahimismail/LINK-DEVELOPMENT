@@ -34,8 +34,8 @@
 
                 <ImageView
                     android:id="@+id/back_img"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/tool_icon_size"
+                    android:layout_height="@dimen/tool_icon_size"
                     android:layout_alignParentStart="true"
                     android:layout_centerVertical="true"
                     android:src="@drawable/ic_baseline_arrow_back" />
@@ -58,11 +58,11 @@
                     android:singleLine="true"
                     android:text="@string/link_development"
                     android:textColor="@color/white"
-                    android:textSize="20sp" />
+                    android:textSize="@dimen/tool_bar_title_text_size" />
 
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/tool_icon_size"
+                    android:layout_height="@dimen/tool_icon_size"
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_gravity="end"
@@ -89,31 +89,26 @@
             <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="20dp"
-                android:orientation="vertical"
-                android:weightSum="1">
+                android:layout_marginStart="@dimen/def_margin"
+                android:layout_marginTop="@dimen/def_margin"
+                android:layout_marginEnd="@dimen/def_margin"
+                android:orientation="vertical">
 
 
-                <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical"
-                    android:weightSum="1">
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="150dp">
+                        android:layout_height="@dimen/list_item_tool_bar_title_text_size">
 
 
                         <ImageView
                             android:id="@+id/image_details"
                             android:layout_width="match_parent"
-                            android:layout_height="150dp"
+                            android:layout_height="match_parent"
                             android:layout_centerInParent="true"
                             android:scaleType="centerCrop"
                             android:src="@drawable/placeholder" />
@@ -124,20 +119,19 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentEnd="true"
                             android:layout_alignParentBottom="true"
-                            android:layout_margin="10dp"
+                            android:layout_margin="@dimen/details_date_margin"
                             android:ellipsize="end"
                             android:gravity="end"
                             android:maxLines="1"
-                            android:text="April 3,2017"
+                            android:text="@string/date_place_holder"
                             android:textColor="@color/white"
-                            android:textSize="12sp" />
+                            android:textSize="@dimen/list_item_date_text_size" />
                     </RelativeLayout>
 
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight=".4"
                         android:background="@color/white"
                         android:orientation="vertical"
                         android:padding="10dp">
@@ -148,31 +142,32 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:maxLines="2"
-                            android:text="Amazing Images gv ngv jthmgnv hmnb hnm "
+                            android:text="@string/title_place_holder"
                             android:textColor="@color/colorMaintitle"
-                            android:textSize="22sp" />
+                            android:textSize="@dimen/news_title_text_size" />
 
                         <TextView
                             android:id="@+id/sponsored_txt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="@dimen/list_item_default_item_top_margin"
                             android:ellipsize="end"
                             android:gravity="start"
                             android:maxLines="1"
-                            android:text="Amazing Images"
+                            android:text="@string/sponsered_place_holder"
                             android:textColor="@color/colorDate"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/sponsered_text_size" />
 
                         <TextView
                             android:id="@+id/description_txt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
+                            android:layout_marginTop="@dimen/description_margin"
+                            android:layout_marginBottom="@dimen/description_margin"
                             android:gravity="start"
-                            android:text="Amazing Images"
+                            android:text="@string/title_place_holder"
                             android:textColor="@color/colorDate"
-                            android:textSize="14sp" />
+                            android:textSize="@dimen/description_text_size" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -181,15 +176,14 @@
 
             <Button
                 android:id="@+id/open_website_btn"
-                android:background="@color/colorPrimaryDark"
-                android:layout_margin="20dp"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/open_web_btn_height"
+                android:layout_margin="@dimen/def_margin"
+                android:background="@color/colorPrimaryDark"
                 android:text="@string/open_website"
                 android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="normal"
-                />
+                android:textSize="@dimen/open_web_btn_text_size"
+                android:textStyle="normal" />
 
         </LinearLayout>
     </ScrollView>

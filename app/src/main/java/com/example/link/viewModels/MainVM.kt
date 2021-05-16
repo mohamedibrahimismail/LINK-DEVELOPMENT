@@ -1,8 +1,10 @@
 package com.example.link.viewModels
 
 import androidx.lifecycle.MutableLiveData
+import com.example.link.R
 import com.example.link.model.GenericResponse
 import com.example.link.model.main.ArticlesModelItem
+import com.example.link.model.main.NavigationItemModel
 import com.example.link.network.AppRepository
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers

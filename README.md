@@ -1,6 +1,8 @@
 # LINK-DEVELOPMENT
 in this project i used several technologies to achieve best performance , i used :
 
+- Minimum supported version is Android 5.0
+- Navigation drawer
 - kotlin
 - Android Architecture component
 - Mvvm

@@ -16,9 +16,7 @@ abstract class BaseViewModel : ViewModel() {
         get() = snackbarText
 
     val loading = MutableLiveData<Boolean>()
-    val refreshLoading = MutableLiveData<Boolean>(false)
-    val isFirst = MutableLiveData<Boolean>(false)
-    val moreLoading = MutableLiveData<Boolean>()
+
 //    val dataLoading: LiveData<Boolean> get() = loading
 
     var error: MutableLiveData<String> = MutableLiveData()

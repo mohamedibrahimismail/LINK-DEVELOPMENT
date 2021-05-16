@@ -29,7 +29,7 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         createApi(null,  APIContentInterceptor())
-        initCalligraphyConfig()
+        //initCalligraphyConfig()
         startKoin(this, listOf(appModule))
         isNotAuth = MutableLiveData()
         isNotAuth.value = false
