@@ -15,7 +15,7 @@
     <string name="welcome">Welcome</string>
     <string name="tony_roshdy">Tony Roshdy</string>
     <string name="by">By</string>
-    <string name="sorry_server_error_happened">server error happened , please try again !</string>
+    <string name="sorry_server_error_happened">server error happened , please try later !</string>
     <string name="open_website">OPEN WEBSITE</string>
     <string name="please_check_network_connection">please check network connection !</string>
     <string name="retry">Retry</string>
