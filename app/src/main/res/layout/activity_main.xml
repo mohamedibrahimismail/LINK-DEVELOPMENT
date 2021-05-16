@@ -104,9 +104,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/def_margin"
+            android:layout_marginTop="@dimen/nav_header_margin_top"
             android:layout_marginEnd="@dimen/def_margin"
             android:layout_marginBottom="@dimen/def_margin"
-            android:layout_marginTop="@dimen/nav_header_margin_top"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -157,10 +157,10 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginTop="@dimen/def_margin"
             android:id="@+id/navigation_rv"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="@dimen/def_margin"
             android:layout_weight="1"
             android:orientation="vertical"
             android:scrollbarThumbHorizontal="@null"

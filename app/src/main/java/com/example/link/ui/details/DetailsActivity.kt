@@ -3,6 +3,7 @@ package com.example.link.ui.details
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -28,6 +29,7 @@ class DetailsActivity : BaseActivity() {
 
     @SuppressLint("NewApi")
     fun setupViews() {
+        open_website_btn.setTypeface(null, Typeface.NORMAL);
         back_img.setOnClickListener(View.OnClickListener {
             finish()
         })
