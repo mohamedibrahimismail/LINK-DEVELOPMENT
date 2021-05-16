@@ -71,6 +71,7 @@
             android:background="@color/colorBasic"
             android:clipToPadding="false">
 
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/news_feed_recyclerview"
                 android:layout_width="match_parent"
@@ -86,6 +87,7 @@
                 tools:listitem="@layout/main_news_list_item"
 
                 />
+            <include layout="@layout/layout_error" android:id="@+id/limiteViewError" />
         </RelativeLayout>
     </LinearLayout>
     <!-- Main Activity End -->

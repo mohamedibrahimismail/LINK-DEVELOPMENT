@@ -6,9 +6,7 @@ import com.androidnetworking.interceptors.HttpLoggingInterceptor
 import com.example.link.di.appModule
 import com.example.link.network.retrofit.*
 import com.example.link.utils.AppConstants.BASE_URL
-import io.github.inflationx.calligraphy3.CalligraphyConfig
-import io.github.inflationx.calligraphy3.CalligraphyInterceptor
-import io.github.inflationx.viewpump.ViewPump
+
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import org.koin.android.ext.android.inject
@@ -40,19 +38,7 @@ class App : Application() {
      * initCalligraphyConfig used to set the application font path for the whole app (livvic font)
      * @author Mohamed Ibrahim
      */
-    private fun initCalligraphyConfig() {
-        ViewPump.init(
-            ViewPump.builder()
-                .addInterceptor(
-                    CalligraphyInterceptor(
-                        CalligraphyConfig.Builder()
-                            .setDefaultFontPath("fonts/livvic.ttf")
-                            .build()
-                    )
-                )
-                .build()
-        )
-    }
+
 
     companion object {
         lateinit var getService: Service

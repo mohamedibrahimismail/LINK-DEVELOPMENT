@@ -22,5 +22,6 @@
     <string name="title_place_holder">Amazing Images gv ngv jthmgnv hmnb hnm</string>
     <string name="sponsered_place_holder">Amazing Images</string>
     <string name="date_place_holder">April 3,2017</string>
+    <string name="free_limit_exceeded">Sorry you have exceeded the free requests limits you have to upgrade to paid account or try in another time !</string>
 
 </resources>

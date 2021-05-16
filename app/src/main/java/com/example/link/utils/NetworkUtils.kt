@@ -2,6 +2,7 @@ package  com.example.link.utils
 
 import android.content.Context
 import android.net.ConnectivityManager
+import java.lang.Error
 
 object NetworkUtils {
 
@@ -10,4 +11,11 @@ object NetworkUtils {
         val activeNetwork = cm.activeNetworkInfo
         return activeNetwork != null && activeNetwork.isConnectedOrConnecting
     }
+
+    enum class RESPONSE_ERROR {
+        EXCEED_LIMIT, OTHER
+    }
+
 }
+
+data class ResponseApiErrorModel(var respose_error: NetworkUtils.RESPONSE_ERROR,var message:String)

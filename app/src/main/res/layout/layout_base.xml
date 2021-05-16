@@ -11,7 +11,7 @@
     <include layout="@layout/progress_dialog" />
     <include layout="@layout/item_no_internet_connection" />
 
-    <include layout="@layout/layout_error" />
+<!--    <include layout="@layout/layout_error" />-->
 
 </RelativeLayout>
 

@@ -16,8 +16,10 @@ import com.example.link.adapters.NewsFeedListAdapter
 import com.example.link.model.main.ArticlesModelItem
 import com.example.link.model.main.NavigationItemModel
 import com.example.link.ui.base.BaseActivity
+import com.example.link.utils.NetworkUtils
 import com.example.link.viewModels.MainVM
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.layout_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -52,15 +54,21 @@ class MainActivity : BaseActivity() {
         mainVM.AllArticles.observe(this, Observer {
             setupNewsFeedAdapter(it)
         })
-        mainVM.ErrorHappened.observe(this, Observer {
-            if (it) {
-                Toast.makeText(
-                    this,
-                    resources.getString(R.string.sorry_server_error_happened),
-                    Toast.LENGTH_LONG
-                ).show()
-                mainVM.ErrorHappened.value = false
+        mainVM.ApiErrorHappened.observe(this, Observer {
+            when (it) {
+                NetworkUtils.RESPONSE_ERROR.EXCEED_LIMIT -> showServrLimitErrorLyt(
+                    resources.getString(
+                        R.string.free_limit_exceeded
+                    )
+                )
+                NetworkUtils.RESPONSE_ERROR.OTHER -> showServrLimitErrorLyt(resources.getString(R.string.sorry_server_error_happened))
             }
+
+            Toast.makeText(
+                this,
+                resources.getString(R.string.sorry_server_error_happened),
+                Toast.LENGTH_LONG
+            ).show()
 
         })
 
@@ -106,7 +114,12 @@ class MainActivity : BaseActivity() {
 
     private fun setupNavigationAdapter() {
         val itemDecorator = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
-        itemDecorator.setDrawable(ContextCompat.getDrawable(this, R.drawable.nav_drawer_divider_shape)!!)
+        itemDecorator.setDrawable(
+            ContextCompat.getDrawable(
+                this,
+                R.drawable.nav_drawer_divider_shape
+            )!!
+        )
         navigation_rv.addItemDecoration(itemDecorator)
         var adapter: NavigationRVAdapter = NavigationRVAdapter(getNavigationDrawerListItems())
         navigation_rv.adapter = adapter
@@ -159,6 +172,17 @@ class MainActivity : BaseActivity() {
                 super.onBackPressed()
             }
         }
+    }
+
+    private fun showServrLimitErrorLyt(message: String) {
+        errorText.text = message
+        limiteViewError.visibility = View.VISIBLE
+        news_feed_recyclerview.visibility = View.GONE
+    }
+
+    private fun hideServerLimitErrorLyt() {
+        limiteViewError.visibility = View.GONE
+        news_feed_recyclerview.visibility = View.VISIBLE
     }
 
 }

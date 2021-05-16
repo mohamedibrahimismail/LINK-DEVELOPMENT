@@ -76,19 +76,14 @@ abstract class BaseActivity : AppCompatActivity(), BaseViewCallBack {
             }
         })
 
-        retryBTN2.setOnClickListener(View.OnClickListener {
-            commanVM.error.value = ""
-            afterInflation(savedInstanceState)
-        })
-
     }
 
-    protected fun showErrorLyt() {
+    private fun showErrorLyt() {
         errorView.visibility = View.VISIBLE
         activityView!!.visibility = View.GONE
     }
 
-    protected fun hideErrorLyt() {
+    private fun hideErrorLyt() {
         errorView.visibility = View.GONE
         activityView!!.visibility = View.VISIBLE
     }
